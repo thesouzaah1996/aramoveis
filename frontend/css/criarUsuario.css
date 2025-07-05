@@ -1,0 +1,30 @@
+body {
+    background: linear-gradient(to bottom, #f0f6ff 0%, #e0e8f5 100%);
+
+}
+
+img {
+    height: 9%;
+    width: 23%;
+}
+
+main.container {
+    flex-grow: 1; /* Ocupa o espaço disponível entre o header e o footer */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente o conteúdo do main */
+    align-items: center; /* Centraliza horizontalmente o conteúdo do main */
+    padding-top: 50px; 
+    padding-bottom: 50px; 
+}
+
+/* Estilo para o formulário de CRIAR USUÁRIO */
+.user-form {
+    background-color: #ffffff; /* Fundo branco para o formulário */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Sombra destacada */
+    max-width: 600px; /* Largura para o formulário de usuário */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    text-align: left; /* Alinha os labels e inputs à esquerda */
+}

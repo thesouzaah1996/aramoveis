@@ -1,0 +1,70 @@
+body {
+    background: linear-gradient(to bottom, #f0f6ff 0%, #e0e8f5 100%);
+}
+
+.material-form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.material-form .form-label {
+    font-weight: 500;
+    color: #343a40;
+    margin-bottom: 8px;
+}
+
+.material-form .form-control,
+.material-form .form-select {
+    border-radius: 8px;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+}
+
+.material-form .form-control:focus,
+.material-form .form-select:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+    
+}
+
+.material-form .card {
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.material-form .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.item-group {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px dashed #e0e0e0;
+}
+
+.btn-primary {
+    background-color: #2a64c4;
+    border-color: #2a64c4;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1e4b9c;
+    border-color: #1e4b9c;
+}
+
+/* Correção específica para a "faixa" azulada no dropdown focado */
+.form-select:focus {
+    border-color: #86b7fe !important;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25) !important;
+    outline: none !important;
+}
