@@ -124,3 +124,28 @@ footer p {
     color: #6c757d; /* Cor do texto do footer */
     font-size: 0.9rem;
 }
+
+/* Customização para o Breadcrumb */
+.breadcrumb {
+    background-color: transparent; /* Remove o fundo padrão do Bootstrap se houver */
+    padding: 0; /* Remove padding padrão */
+    margin-bottom: 1rem; /* Ajusta o espaçamento inferior se precisar */
+}
+
+.breadcrumb-item a {
+    color: #6c757d; /* Cor para os links do Breadcrumb, um cinza suave */
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    color: #2a64c4; /* Cor no hover, combinando com o tema primário */
+}
+
+.breadcrumb-item.active {
+    color: #343a40; /* Cor do texto da página atual (não link), um cinza mais escuro */
+    font-weight: 500; /* Levemente mais negrito */
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: #adb5bd; /* Cor do divisor (a barra ou seta) */
+}

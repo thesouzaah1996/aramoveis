@@ -36,3 +36,40 @@ body {
     font-size: 1.6rem;
     margin-bottom: 30px;
 }
+
+/* --- Estilos Melhorados para o Botão Sair (V2) --- */
+.btn-sair {
+    position: fixed;
+    top: 25px; /* Ajustado um pouco para baixo para maior espaçamento do topo */
+    right: 25px; /* Ajustado um pouco para a esquerda para maior espaçamento da direita */
+    z-index: 1030;
+
+    /* Estilo do botão baseando-se nos cards */
+    background-color: #ffffff; /* Fundo branco, como os cards */
+    color: #2a64c4; /* Cor principal azul, como os ícones e a logo */
+    border: none; /* Remover a borda para um visual mais limpo */
+    border-radius: 12px; /* Cantos mais arredondados, combinando com os cards */
+    padding: 12px 25px; /* Torna o botão maior e mais espaçoso */
+    font-size: 1.05rem; /* Aumenta o tamanho da fonte */
+    font-weight: 600; /* Deixa o texto mais negrito */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06); /* Sombra mais suave, como a dos cards */
+    transition: all 0.3s ease-in-out; /* Transição suave para efeitos de hover */
+    text-decoration: none; /* Remover sublinhado do link */
+    display: inline-flex; /* Alinhar ícone e texto */
+    align-items: center; /* Alinhar verticalmente */
+    gap: 8px; /* Espaço entre ícone e texto */
+}
+
+.btn-sair:hover {
+    background-color: #f8f9fa; /* Fundo levemente acinzentado no hover para feedback */
+    color: #1e4b9c; /* Um tom de azul mais escuro no hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12); /* Sombra mais pronunciada no hover */
+    transform: translateY(-2px); /* Efeito de "levantar" um pouco mais acentuado */
+    cursor: pointer; /* Indica que é clicável */
+}
+
+/* Garante que o ícone herde a cor e tamanho, e ajusta se necessário */
+.btn-sair i {
+    font-size: 1.3rem; /* Tamanho do ícone para o botão */
+    color: inherit; /* Herda a cor do texto do botão */
+}
