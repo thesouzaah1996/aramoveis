@@ -10,7 +10,7 @@
   <div class="form-container">
     <div class="form-card">
       <h2>Cadastrar Novo Usuário</h2>
-      <form class="user-form">
+      <form class="user-form" method="post" action="/api/login">
         <div class="input-group">
           <label for="nome">Nome Completo</label>
           <input type="text" id="nome" name="nome" placeholder="Nome do Usuário" required />
@@ -61,5 +61,6 @@
       </form>
     </div>
   </div>
+  <script src="js/cadastrarUsuario.js"></script>
 </body>
 </html>
