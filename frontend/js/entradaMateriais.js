@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const setorSpecificFields = document.getElementById('setorSpecificFields');
     const entradaMaterialForm = document.getElementById('entradaMaterialForm');
 
+    // Configuration for sector-specific fields
     const specificFieldsConfig = {
         'Administrativo': `
             <div class="card p-4 mb-4">
@@ -297,21 +298,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setorSelect.addEventListener('change', function() {
         const selectedSetor = this.value;
-        setorSpecificFields.innerHTML = ''; // Limpa campos específicos anteriores
+        setorSpecificFields.innerHTML = '';
 
         if (selectedSetor) {
-            commonFields.style.display = 'block'; // Mostra campos comuns
+            commonFields.style.display = 'block';
             if (specificFieldsConfig[selectedSetor]) {
                 setorSpecificFields.innerHTML = specificFieldsConfig[selectedSetor];
             }
         } else {
-            commonFields.style.display = 'none'; // Esconde campos comuns
+            commonFields.style.display = 'none';
         }
     });
 
-    // Evento de submit do formulário (apenas para demonstração)
-    entradaMaterialForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Impede o envio real do formulário
+    entradaMaterialForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
 
         const selectedSetor = setorSelect.value;
         if (!selectedSetor) {
@@ -319,41 +319,167 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        const formData = {
-            setor: selectedSetor,
+        const baseUrl = 'http://localhost:8080/api';
+
+        let endpoint = '';
+        let requestBody = {
+            idProduto: document.getElementById('idProduto').value,
             dataEntrada: document.getElementById('dataEntrada').value,
             notaFiscal: document.getElementById('notaFiscal').value,
             fornecedor: document.getElementById('fornecedor').value,
             responsavel: document.getElementById('responsavel').value,
-            // Adicione aqui a coleta dos dados específicos do setor selecionado
-            // Exemplo para 'Administrativo':
-            // itemAdmin: selectedSetor === 'Administrativo' ? document.getElementById('itemAdmin').value : null,
-            // ... e assim por diante para todos os campos específicos
         };
 
-        // Para fins de demonstração, exibe os dados no console
-        console.log('Dados do Formulário:', formData);
-        alert('Entrada de Material Registrada! (Verifique o console para os dados)');
+        switch (selectedSetor) {
+            case 'Administrativo':
+                endpoint = `${baseUrl}/administrativo/estoque`;
+                requestBody = {
+                    ...requestBody,
+                    itemAdmin: document.getElementById('itemAdmin').value,
+                    quantidadeAdmin: parseInt(document.getElementById('quantidadeAdmin').value),
+                    unidadeAdmin: document.getElementById('unidadeAdmin').value
+                };
+                break;
+            case 'Almoxarifado':
+                endpoint = `${baseUrl}/almoxarifado/estoque`;
+                requestBody = {
+                    ...requestBody,
+                    itemAlmox: document.getElementById('itemAlmox').value,
+                    quantidadeAlmox: parseInt(document.getElementById('quantidadeAlmox').value),
+                    unidadeAlmox: document.getElementById('unidadeAlmox').value,
+                    localizacaoAlmox: document.getElementById('localizacaoAlmox').value,
+                    codigoMaterial: document.getElementById('codigoMaterial').value
+                };
+                break;
+            case 'Assistência':
+                endpoint = `${baseUrl}/assistencia/estoque`;
+                requestBody = {
+                    ...requestBody,
+                    itemAssist: document.getElementById('itemAssist').value,
+                    quantidadeAssist: parseInt(document.getElementById('quantidadeAssist').value),
+                    unidadeAssist: document.getElementById('unidadeAssist').value,
+                    equipamentoAssoc: document.getElementById('equipamentoAssoc').value,
+                    motivoAssist: document.getElementById('motivoAssist').value
+                };
+                break;
+            case 'Carregamento':
+                endpoint = `${baseUrl}/carregamento/estoque`;
+                requestBody = {
+                    ...requestBody,
+                    itemCarreg: document.getElementById('itemCarreg').value,
+                    quantidadeCarreg: parseInt(document.getElementById('quantidadeCarreg').value),
+                    unidadeCarreg: document.getElementById('unidadeCarreg').value,
+                    tipoCargaCarreg: document.getElementById('tipoCargaCarreg').value
+                };
+                break;
+            case 'Corte':
+                endpoint = `${baseUrl}/corte/estoque`;
+                requestBody = {
+                    ...requestBody,
+                    itemCorte: document.getElementById('itemCorte').value,
+                    quantidadeCorte: parseInt(document.getElementById('quantidadeCorte').value),
+                    unidadeCorte: document.getElementById('unidadeCorte').value,
+                    dimensoesCorte: document.getElementById('dimensoesCorte').value,
+                    tipoMaterialCorte: document.getElementById('tipoMaterialCorte').value
+                };
+                break;
+            case 'Embalagem':
+                endpoint = `${baseUrl}/embalagem/estoque`;
+                requestBody = {
+                    ...requestBody,
+                    itemEmbalagem: document.getElementById('itemEmbalagem').value,
+                    quantidadeEmbalagem: parseInt(document.getElementById('quantidadeEmbalagem').value),
+                    unidadeEmbalagem: document.getElementById('unidadeEmbalagem').value,
+                    tipoEmbalagem: document.getElementById('tipoEmbalagem').value,
+                    produtoFinalEmbalagem: document.getElementById('produtoFinalEmbalagem').value
+                };
+                break;
+            case 'Manutenção':
+                endpoint = `${baseUrl}/manutencao/estoque`;
+                requestBody = {
+                    ...requestBody,
+                    itemManut: document.getElementById('itemManut').value,
+                    quantidadeManut: parseInt(document.getElementById('quantidadeManut').value),
+                    unidadeManut: document.getElementById('unidadeManut').value,
+                    equipamentoManut: document.getElementById('equipamentoManut').value,
+                    tipoManut: document.getElementById('tipoManut').value
+                };
+                break;
+            case 'PCP':
+                endpoint = `${baseUrl}/pcp/estoque`;
+                requestBody = {
+                    ...requestBody,
+                    itemPCP: document.getElementById('itemPCP').value,
+                    quantidadePCP: parseInt(document.getElementById('quantidadePCP').value),
+                    unidadePCP: document.getElementById('unidadePCP').value,
+                    ordemProducaoPCP: document.getElementById('ordemProducaoPCP').value,
+                    produtoPCP: document.getElementById('produtoPCP').value
+                };
+                break;
+            case 'Pintura':
+                endpoint = `${baseUrl}/pintura/estoque`;
+                requestBody = {
+                    ...requestBody,
+                    itemPintura: document.getElementById('itemPintura').value,
+                    quantidadePintura: parseInt(document.getElementById('quantidadePintura').value),
+                    unidadePintura: document.getElementById('unidadePintura').value,
+                    corPintura: document.getElementById('corPintura').value,
+                    tipoSuperficiePintura: document.getElementById('tipoSuperficiePintura').value
+                };
+                break;
+            case 'Portaria':
+                endpoint = `${baseUrl}/portaria/estoque`;
+                requestBody = {
+                    ...requestBody,
+                    itemPortaria: document.getElementById('itemPortaria').value,
+                    quantidadePortaria: parseInt(document.getElementById('quantidadePortaria').value),
+                    unidadePortaria: document.getElementById('unidadePortaria').value
+                };
+                break;
+            case 'Usinagem':
+                endpoint = `${baseUrl}/usinagem/estoque`;
+                requestBody = {
+                    ...requestBody,
+                    itemUsinagem: document.getElementById('itemUsinagem').value,
+                    quantidadeUsinagem: parseInt(document.getElementById('quantidadeUsinagem').value),
+                    unidadeUsinagem: document.getElementById('unidadeUsinagem').value,
+                    tipoFerramentaUsinagem: document.getElementById('tipoFerramentaUsinagem').value,
+                    maquinaUsinagem: document.getElementById('maquinaUsinagem').value
+                };
+                break;
+            default:
+                alert('Erro: Setor selecionado inválido.');
+                return;
+        }
 
-        // Em um ambiente real, você enviaria esses dados para um servidor (API)
-        // fetch('/api/entrada-materiais', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(formData),
-        // })
-        // .then(response => response.json())
-        // .then(data => {
-        //     console.log('Sucesso:', data);
-        //     alert('Entrada registrada com sucesso!');
-        //     entradaMaterialForm.reset(); // Limpa o formulário
-        //     setorSpecificFields.innerHTML = ''; // Limpa campos específicos
-        //     commonFields.style.display = 'none'; // Esconde campos comuns
-        // })
-        // .catch((error) => {
-        //     console.error('Erro:', error);
-        //     alert('Erro ao registrar entrada. Tente novamente.');
-        // });
+        console.log('Dados do Formulário para envio:', baseUrl);
+
+        
+
+        try {
+            const response = await fetch(endpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(requestBody),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || `Erro do servidor: ${response.status} ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            console.log('Sucesso:', data);
+            alert('Entrada registrada com sucesso!');
+            entradaMaterialForm.reset();
+            setorSpecificFields.innerHTML = '';
+            commonFields.style.display = 'none';
+        } catch (error) {
+            console.error('Erro:', error);
+            alert(`Erro ao registrar entrada: ${error.message}. Verifique o console para mais detalhes.`);
+        }
+        console.log(requestBody);
     });
 });

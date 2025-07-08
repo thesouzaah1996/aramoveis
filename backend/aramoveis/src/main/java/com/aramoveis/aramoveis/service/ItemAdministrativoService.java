@@ -5,6 +5,8 @@ import com.aramoveis.aramoveis.repository.ItemAdministrativoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ItemAdministrativoService {
 
@@ -13,5 +15,9 @@ public class ItemAdministrativoService {
 
     public ItemAdministrativo addItem(ItemAdministrativo itemAdministrativo) {
         return itemAdministrativoRepository.save(itemAdministrativo);
+    }
+
+    public List<ItemAdministrativo> buscarItens() {
+        return itemAdministrativoRepository.findAll();
     }
 }

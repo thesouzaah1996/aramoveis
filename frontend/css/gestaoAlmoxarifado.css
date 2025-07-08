@@ -1,0 +1,151 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    /* Ajuste do gradiente para ficar mais próximo da imagem */
+    background: linear-gradient(to bottom, #E8F1FF, #DAE5F9); 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.text-primary {
+    color: #2a64c4 !important; /* Azul para o título, mais próximo do logo */
+}
+
+h2 {
+    color: #2a64c4; /* Cor do título principal, harmonizando com o logo */
+    font-weight: 700;
+    margin-bottom: 30px;
+    font-size: 2.8rem;
+}
+
+.lead {
+    color: #6c757d;
+    font-size: 1.25rem;
+}
+
+/* Estilo para o Header */
+.navbar {
+    background-color: #ffffff !important; /* Header branco */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sombra mais sutil para o header */
+}
+
+.navbar-brand .text-primary {
+    color: #2a64c4 !important; /* Cor do texto "Aramóveis" no header */
+    font-size: 1.6rem;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.05rem;
+    padding: 0.5rem 1rem;
+    color: #343a40; /* Cor dos links do navbar */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #2a64c4; /* Cor dos links do navbar no hover */
+}
+
+.navbar-nav .nav-link.text-primary {
+    font-weight: 700;
+}
+
+
+/* Estilo dos Cards de Ação */
+.action-card {
+    width: 280px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff; /* Fundo branco para os cards, como na imagem */
+    color: #343a40;
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Borda muito sutil, quase invisível */
+    border-radius: 12px;
+    /* Sombra mais suave, como na imagem */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06); 
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    overflow: hidden;
+}
+
+.action-card:hover {
+    background-color: #ffffff; /* Mantém branco no hover, apenas a sombra muda */
+    transform: translateY(-5px); /* Elevação sutil */
+    /* Sombra no hover para dar feedback, um pouco mais pronunciada */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12); 
+}
+
+.action-card a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #343a40;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+}
+
+.action-card i {
+    color: #2a64c4; /* Cor dos ícones, harmonizando com o logo e título */
+    font-size: 4.2rem; /* Ícones um pouco maiores */
+    margin-bottom: 15px;
+}
+
+.action-card span {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #343a40;
+}
+
+.action-card small {
+    font-size: 0.9rem;
+    color: #6c757d;
+    line-height: 1.4;
+    padding: 0 10px; /* Pequeno padding para o texto da descrição */
+}
+
+.action-card a:hover span {
+    color: #2a64c4; /* Cor do texto no hover, harmonizando com os ícones */
+    text-decoration: none;
+}
+
+/* Footer Styles */
+footer {
+    /* Gradiente para o footer, integrado com o fundo */
+    background: linear-gradient(to bottom, #DAE5F9, #E8F1FF); /* Inverte o gradiente do body para simular a continuação */
+    border-top: 1px solid rgba(0, 0, 0, 0.05); /* Borda sutil no topo do footer */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+footer p {
+    color: #6c757d; /* Cor do texto do footer */
+    font-size: 0.9rem;
+}
+
+/* Customização para o Breadcrumb */
+.breadcrumb {
+    background-color: transparent; /* Remove o fundo padrão do Bootstrap se houver */
+    padding: 0; /* Remove padding padrão */
+    margin-bottom: 1rem; /* Ajusta o espaçamento inferior se precisar */
+}
+
+.breadcrumb-item a {
+    color: #6c757d; /* Cor para os links do Breadcrumb, um cinza suave */
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    color: #2a64c4; /* Cor no hover, combinando com o tema primário */
+}
+
+.breadcrumb-item.active {
+    color: #343a40; /* Cor do texto da página atual (não link), um cinza mais escuro */
+    font-weight: 500; /* Levemente mais negrito */
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: #adb5bd; /* Cor do divisor (a barra ou seta) */
+}
