@@ -37,4 +37,4 @@ out/
 .vscode/
 
 # Arquivos sensíveis
-src/main/resources/application.properties
+**/resources/application.properties
