@@ -3,15 +3,15 @@ package com.aramoveis.almoxarifado.model;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
-public class ItemAdministrativo extends BaseEntity {
+public class ItemAlmoxarifado extends BaseEntity {
 
-    private String nomeItem;
+    private String nomeMaterial;
     private int quantidade;
-    private String unidade;
+    private String unidadeDeMedida;
+    private int itensPorUnidade;
+    private double totalDeItens;
 }
