@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/api/entrada/produtos/administrativo")
+@RequestMapping("/api/entrada/produto/administrativo")
 public class ItemAdministrativoController {
 
     @Autowired

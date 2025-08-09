@@ -1,7 +1,7 @@
 package com.aramoveis.almoxarifado.controller;
 
-import com.aramoveis.almoxarifado.model.ItemCorte;
-import com.aramoveis.almoxarifado.service.ItemCorteService;
+import com.aramoveis.almoxarifado.model.ItemPintura;
+import com.aramoveis.almoxarifado.service.ItemPinturaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/entrada/produto/corte")
-public class ItemCorteController {
+@RequestMapping("api/entrada/produto/pintura")
+public class ItemPinturaController {
 
     @Autowired
-    private ItemCorteService itemCorteService;
+    private ItemPinturaService itemPinturaService;
 
     @PostMapping
-    public ResponseEntity<ItemCorte> addItemCorte(@RequestBody ItemCorte itemCorte) {
-        ItemCorte itemSalvo = itemCorteService.registrarItemCorte(itemCorte);
-        return ResponseEntity.status(HttpStatus.CREATED).body(itemCorte);
+    public ResponseEntity<ItemPintura> addItemPintura(@RequestBody ItemPintura itemPintura) {
+        ItemPintura itemSalvo = itemPinturaService.registrarItemPintura(itemPintura);
+        return ResponseEntity.status(HttpStatus.CREATED).body(itemPintura);
     }
 }
